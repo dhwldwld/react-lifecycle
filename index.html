@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Example</title>
+    </head>
+    <body>
+        <div id="root"></div>
+        <script crossorigin src="https://unpkg.com/react@17/umd/react.development.js"></script>
+        <script
+            crossorigin
+            src="https://unpkg.com/react-dom@17/umd/react-dom.development.js"
+        ></script>
+        <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+        <script type="text/babel">
+            console.log(React);
+            console.log(ReactDOM);
+            // class App extends React.Component {
+            //     state = {
+            //         age: 19,
+            //     };
+
+            //     constructor(props) {
+            //         super(props);
+
+            //         console.log("constructor", props);
+            //     }
+
+            //     render() {
+            //         console.log("render");
+            //         return (
+            //             <div>
+            //                 <h2>
+            //                     hello {this.props.name} - {this.state.age}
+            //                 </h2>
+            //             </div>
+            //         );
+            //     }
+            //     // UNSAFE_componentWillMount
+            //     // componentWillMount() {
+            //     //     console.log("componentWillMount");
+            //     //     /* render가 되기 직전에 호출되는 API 로
+            //     //      * 브라우저가 아닌 환경에서도 호출하는 용도로 사용했으나
+            //     //      * componentDidMount에서 처리할 수 있다.
+            //     //      */
+            //     //     // v17 전까지는 deprecated된 메소드들을 unsafe를 생략하고 사용할 수 있다.
+            //     // }
+
+            //     componentDidMount() {
+            //         console.log("componentDidMount");
+
+            //         this.interval = setInterval(() => {
+            //             //console.log("setInterval");
+            //             this.setState((state) => ({ ...state, age: state.age + 1 }));
+            //         }, 1000);
+            //     }
+
+            //     // componentWillReceiveProps(nextProps) {
+            //     //     // props 변경을 감지하고 가장먼저 실행
+            //     //     console.log("componentWillReceiveProps", nextProps);
+            //     // }
+
+            //     shouldComponentUpdate(nextProps, nextState) {
+            //         // 변경된 다음 props와 state를 받아옴
+            //         console.log("shouldComponentUpdate", nextProps, nextState);
+
+            //         return true;
+            //         // true면 render가 실행되고 false면 render가 실행이 안됨
+            //     }
+
+            //     // componentWillUpdate(nextProps, nextState) {
+            //     //     console.log("componentWillUpdate", nextProps, nextState);
+            //     // }
+
+            //     componentDidUpdate(prevProps, prevState) {
+            //         console.log("componentDidUpdate", prevProps, prevState);
+            //     }
+
+            //     componentWillUnmount() {
+            //         clearInterval(this.interval);
+            //     }
+
+            //     // static getDerivedStateFromProps(nextProps, prevState) {
+            //     //     console.log('getDerivedStateFromProps', nextProps, prevState);
+
+            //     //     return {
+            //     //         age: 190,
+            //     //     };
+            //     //     // return에 새로운 state 설정
+            //     // }
+            // }
+
+
+
+            // (v16.3 이후)
+            // let i = 0;
+            // class App extends React.Component {
+            //     state = { list: [] };
+
+            //     render() {
+            //         return (
+            //             <div id="list" style={{ height: 100, overflow: "scroll" }}>
+            //                 {this.state.list.map((i) => {
+            //                     return <div key={i}>{i}</div>;
+            //                 })}
+            //             </div>
+            //         );
+            //     }
+
+            //     componentDidMount() {
+            //         setInterval(() => {
+            //             this.setState(state => ({
+            //                 list: [...state.list, i++]
+            //             }))
+            //         },1000);
+            //     }
+
+            //     getSnapshotBeforeUpdate(prevProps, prevState) {
+            //         if (prevState.list.length === this.state.list.length) return null;
+            //         const list = document.querySelector('#list');
+            //         return list.scrollHeight - list.scrollTop;
+            //     }
+
+            //     componentDidUpdate(prevProps, prevState, snapshot) {
+            //         console.log(snapshot);
+            //         if (snapshot === null) return;
+            //         const list = document.querySelector('#list');
+            //         list.scrollTop = list.scrollHeight - snapshot;
+            //     }
+            // }
+
+
+            class App extends React.Component {
+                state = {
+                    hasError: false
+                };
+                
+                render() {
+                    if (this.state.hasError) {
+                        return <div>예상치 못한 에러가 발생했다.</div>;
+                    }
+                    return ;//<WebService />;
+                }
+
+                componentDidCatch(error, info) {
+                    this.setState({ hasError: true });
+                } // 최상위(최상위 부모)에 있어야 하위 에러를 잡을 수 있음
+            }
+
+            ReactDOM.render(<App name="Name!" />, document.querySelector("#root"));
+        </script>
+    </body>
+</html>
